@@ -1,18 +1,18 @@
 // Set Base State
 resetContent = () => {
     document.querySelector(".displayArea").innerHTML = ""; // Clear previous content
-    // Initialize display area for updates
+    // Initialize display area
     let displayArea = document.querySelector(".displayArea");
     let Info = document.createElement("h1");
     Info.innerHTML = "<em>Assignement of the Labs: 7 Tasks for CIT-Lords in their halls of stone</em>";
     displayArea.append(Info);
 }
 
-// Task 1: Variables
-function task1() {
+// Task #1: Variables
+const task1 = () => {
     resetContent(); // Clear previous content
 
-    // a) Prompt for number and display it with 'Quantity:'
+    // a)
     let quantity = prompt("Please enter a number:");
     quantity = parseFloat(quantity);
     console.log(`Number entered: ${quantity}`);
@@ -31,7 +31,11 @@ function task1() {
     document.querySelector(".displayArea").appendChild(numberArea);
 
 
-    // b) Prompt for percentage and calculate result
+    /* b) 
+        I don't know how to get this to display part a and then prompt for part b,
+        so it looks like part a and part b are updating as one when they are actually 
+        two separate tasks. 
+    */
     let percent = prompt("Enter a percentage amount:");
     percent = parseFloat(percent);
     let result = (quantity * percent) / 100;
@@ -54,8 +58,8 @@ function task1() {
 }
 
 
-// Task 2: Variables & Conditionals
-function task2() {
+// Task #2: Variables & Conditionals
+const task2 = () => {
     resetContent();
     
     let grade = prompt("Enter your numeric grade (1-100):");
@@ -64,11 +68,11 @@ function task2() {
         alert("Invalid grade entered. Please enter a number from 1 to 100.");
         console.log("Invalid entry from user.");
     };
-    grade = Math.round(grade); // Round the grade to the nearest integer
+    grade = Math.round(grade); // Round the nearest integer using built in Math function
     console.log(`Grade entered: ${grade}`);
 
     let letterGrade = "";
-    // (a) If with branches
+    // (a) If with branches for grade ranges
     if (grade >= 91) {
         letterGrade = "A";
     }
@@ -100,7 +104,7 @@ function task2() {
     document.querySelector(".displayArea").appendChild(gradesArea)
 
 
-    // (b) Switch with ranges    
+    // (b) Switch with branches for grade ranges    
     switch (true) {
         case (grade >= 91):
             letterGrade = "A";
@@ -134,11 +138,11 @@ function task2() {
 }
 
 
-// Task 3: Variables and loops
-function task3() {
+// Task #3: Variables and loops
+const task3 = () => {
     resetContent();
     
-    let prof = prompt("Who are the lines for?");
+    let prof = prompt("Who are the lines for?"); // Not used yet but are of task 3 to have it
     let line = prompt("What is the line?");
     let quantity = prompt("How many lines?");
     quantity = parseInt(quantity, 10);
@@ -153,8 +157,8 @@ function task3() {
 }
 
 
-// Task 4: Variables, Loops, DOM
-function task4() {
+// Task #4: Variables, Loops, DOM (left as expression to task 5 can use arrow function)
+const task4 = function () {
     resetContent();
 
     let prof = prompt("Who are the lines for?");
@@ -189,7 +193,7 @@ function task4() {
 }
 
 
-// Task 5: Variables, Loops, DOM, Function
+// Task #5: Variables, Loops, DOM, Function (with arrow function!)
 const task5 = () => {
     resetContent();
 
@@ -225,9 +229,9 @@ const task5 = () => {
 };
 
 
-// Task 6: Times Tables
+// Task #6: Variables, Loops, Functions
 // First strategy
-function task6FirstStrategy() {
+const task6FirstStrategy = () => {
     resetContent();
     
     let timesTableArea = document.createElement("h1");
@@ -253,14 +257,15 @@ function task6FirstStrategy() {
 }
 
 // Second strategy
-function createTable(factor1) {
+const createTable = (factor1) => {
     let innerTable = "";
     for (let factor2 = 1; factor2 <= 12; factor2++) {
         innerTable += `${factor1} x ${factor2} = ${factor1 * factor2}\n`;
     }
     return innerTable;
 }
-function task6SecondStrategy() {
+
+const task6SecondStrategy = () => {
     resetContent();
 
     let timesTableArea = document.createElement("h1");
@@ -335,7 +340,7 @@ const task6ThirdStrategy = (delimiter) => {
 
 
 // Execute main flow
-// Initialize display area for updates
+// Initialize display area using reset display function
 resetContent();
 
 
